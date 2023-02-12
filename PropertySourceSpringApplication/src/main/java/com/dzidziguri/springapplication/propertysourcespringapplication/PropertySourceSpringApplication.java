@@ -22,6 +22,9 @@ public class PropertySourceSpringApplication {
 		Environment env = applicationContext.getBean(Environment.class);
 		System.out.println("Database username: " + env.getProperty("spring.datasource.username"));
 		System.out.println("Database password: " + env.getProperty("spring.datasource.password"));
+		System.out.println();
+		AppProperties appProperties = applicationContext.getBean(AppService.class).getAppProperties();
+		System.out.println(appProperties);
 		log.info(dbConfiguration.toString());
 	}
 

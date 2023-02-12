@@ -1,11 +1,11 @@
 package com.dzidziguri.springapplication.propertysourcespringapplication;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.bind.ConstructorBinding;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 import java.util.List;
 
-@ConstructorBinding
+@ConfigurationPropertiesScan
 @ConfigurationProperties("app.sbip.ct")
 public class AppProperties {
     private final String name;
