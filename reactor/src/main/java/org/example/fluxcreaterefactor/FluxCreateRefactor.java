@@ -12,6 +12,10 @@ public class FluxCreateRefactor {
         Flux.create(nameProducer)
                 .subscribe(Util.subscriber());
 
-        nameProducer.produce();
+        Runnable runnable = nameProducer::produce;
+
+        for(int i = 0; i< 10; i++) {
+            new Thread(runnable).start();
+        }
     }
 }
