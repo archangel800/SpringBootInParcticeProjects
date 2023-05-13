@@ -1,6 +1,8 @@
 package org.example.corseUtil;
 
 import com.github.javafaker.Faker;
+import org.example.defaultsub.DefaultSubscriber;
+import org.reactivestreams.Subscriber;
 
 import javax.print.attribute.standard.JobKOctets;
 import java.util.function.Consumer;
@@ -26,5 +28,13 @@ public class Util {
     public static void sleepSeconds(int seconds) throws InterruptedException {
         Thread.sleep(seconds * 1000);
     }
+
+    public static Subscriber<Object> subscriber() {
+        return new DefaultSubscriber();
+    }
+    public static Subscriber<Object> subscriber(String name) {
+        return new DefaultSubscriber(name);
+    }
+
 
 }
