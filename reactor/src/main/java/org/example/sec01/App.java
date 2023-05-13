@@ -1,9 +1,21 @@
-package org.example;
+package org.example.sec01;
 
-public class App 
+import org.example.corseUtil.Util;
+import reactor.core.publisher.Mono;
+
+import java.util.stream.Stream;
+
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Mono<Integer> mono = Mono.just("eight")
+                .map(String::length)
+                .map(item -> item/1);
+
+        mono.subscribe(Util.onNext(),
+                Util.onError(),
+                Util.onComplete()
+        );
     }
 }
