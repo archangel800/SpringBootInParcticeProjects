@@ -9,7 +9,9 @@ public class DefaultSubscriber implements Subscriber<Object> {
 
     private String name;
 
-    public DefaultSubscriber() {}
+    public DefaultSubscriber() {
+        name="";
+    }
 
     public DefaultSubscriber(String name) {
         this.name = name;
