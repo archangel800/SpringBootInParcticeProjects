@@ -24,7 +24,7 @@ public class onErrorWork {
                     .map(i -> 10 / (5 - i))
                     .onErrorContinue((err, obj) -> {
 
-                    }) //in this case err is the exception itself, and obj is something that caused this error
+                    })//in this case err is the exception itself, and obj is something that caused this error
                     .subscribe(Util.subscriber());
 
     }

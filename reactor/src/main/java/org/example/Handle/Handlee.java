@@ -5,17 +5,17 @@ import reactor.core.publisher.Flux;
 
 public class Handlee {
     public static void main(String[] args) {
-        Flux.range(1, 30)
-                .handle((integer, synchronousSink) -> {
-                    String country = Util.faker().country().name();
-                    synchronousSink.next(integer + ": " + country);
-
-                    if (country.toLowerCase().equals("canada")) {
-                        synchronousSink.complete();
-                    }
-
-                }).subscribe(Util.subscriber());
-
+//        Flux.range(1, 30)
+//                .handle((integer, synchronousSink) -> {
+//                    String country = Util.faker().country().name();
+//                    synchronousSink.next(integer + ": " + country);
+//
+//                    if (country.toLowerCase().equals("canada")) {
+//                        synchronousSink.complete();
+//                    }
+//
+//                }).subscribe(Util.subscriber());
+//
         Flux.generate(synchronousSink -> synchronousSink.next(Util.faker().country().name()))
                 .map(Object::toString)
                 .handle((country, synchronousSink) -> {
@@ -23,5 +23,14 @@ public class Handlee {
                         synchronousSink.complete();
                     }
                 }).subscribe(Util.subscriber());
+
+//        Flux.generate(synchronousSink -> synchronousSink.next(Util.faker().country().name()))
+//                .map(Object::toString)
+//                .handle((country, synchronousSink) -> {
+//                    synchronousSink.next(country);
+//                    if(country.toLowerCase().equals("canada"))
+//                        synchronousSink.complete();
+//                })
+//                .subscribe(Util.subscriber());
     }
 }

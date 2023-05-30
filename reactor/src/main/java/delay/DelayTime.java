@@ -9,7 +9,7 @@ public class DelayTime {
     public static void main(String[] args) throws InterruptedException {
 
         //default limit rate changed to 9
-        System.setProperty("reactor.bufferSize.x", "9");
+        System.setProperty("reactor.bufferSize.x", "15");
         //by default it has limit rate of 32 items
         Flux.range(1, 1000)
                 .log()
