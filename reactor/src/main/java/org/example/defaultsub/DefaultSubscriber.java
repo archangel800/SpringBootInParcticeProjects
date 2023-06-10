@@ -34,6 +34,6 @@ public class DefaultSubscriber implements Subscriber<Object> {
 
     @Override
     public void onComplete() {
-        System.out.println(name + " Completed");
+        System.out.println(name + " Completed " + Thread.currentThread().getName());
     }
 }

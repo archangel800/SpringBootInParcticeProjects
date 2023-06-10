@@ -13,9 +13,9 @@ public class ColdPublisher {
         Flux<String> stringFlux = Flux.fromStream(() -> getMovie())
                 .delayElements(Duration.ofSeconds(2));
 
-        stringFlux.subscribe(Util.subscriber("Sam"));
-        TimeUnit.SECONDS.sleep(5);
-        stringFlux.subscribe(Util.subscriber("Mike"));
+        stringFlux.subscribe(item -> System.out.println("First " + item + " Thread: " + Thread.currentThread().getName()));
+       // TimeUnit.SECONDS.sleep(5);
+        stringFlux.subscribe(item -> System.out.println("Second " + item + " Thread: " + Thread.currentThread().getName()));
         TimeUnit.SECONDS.sleep(60);
     }
     private static Stream<String> getMovie() {
